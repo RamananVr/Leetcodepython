@@ -32,46 +32,46 @@ def trap(height):
         return 0
 
     n = len(height)
-    left_max = [0] * n
-    right_max = [0] * n
+    left, right = 0, n - 1
+    left_max, right_max = 0, 0
+    water_trapped = 0
 
-    # Fill left_max array
-    left_max[0] = height[0]
-    for i in range(1, n):
-        left_max[i] = max(left_max[i - 1], height[i])
+    while left < right:
+        if height[left] < height[right]:
+            if height[left] >= left_max:
+                left_max = height[left]
+            else:
+                water_trapped += left_max - height[left]
+            left += 1
+        else:
+            if height[right] >= right_max:
+                right_max = height[right]
+            else:
+                water_trapped += right_max - height[right]
+            right -= 1
 
-    # Fill right_max array
-    right_max[n - 1] = height[n - 1]
-    for i in range(n - 2, -1, -1):
-        right_max[i] = max(right_max[i + 1], height[i])
-
-    # Calculate trapped water
-    trapped_water = 0
-    for i in range(n):
-        trapped_water += min(left_max[i], right_max[i]) - height[i]
-
-    return trapped_water
+    return water_trapped
 
 # Example Test Cases
 if __name__ == "__main__":
     # Test Case 1
     height1 = [0,1,0,2,1,0,1,3,2,1,2,1]
-    print(trap(height1))  # Output: 6
+    print(f"Test Case 1: {trap(height1)}")  # Expected Output: 6
 
     # Test Case 2
     height2 = [4,2,0,3,2,5]
-    print(trap(height2))  # Output: 9
+    print(f"Test Case 2: {trap(height2)}")  # Expected Output: 9
 
     # Test Case 3
     height3 = [1,0,2]
-    print(trap(height3))  # Output: 1
+    print(f"Test Case 3: {trap(height3)}")  # Expected Output: 1
 
     # Test Case 4
     height4 = [0,0,0,0]
-    print(trap(height4))  # Output: 0
+    print(f"Test Case 4: {trap(height4)}")  # Expected Output: 0
 
     # Test Case 5
     height5 = [3,0,0,2,0,4]
-    print(trap(height5))  # Output: 10
+    print(f"Test Case 5: {trap(height5)}")  # Expected Output: 10
 
 # Topic: Arrays
