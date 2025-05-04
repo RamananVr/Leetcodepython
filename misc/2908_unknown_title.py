@@ -1,3 +1,3 @@
-Unfortunately, LeetCode does not have a problem numbered #2908 as of my knowledge cutoff in October 2023. LeetCode problem numbers are dynamic and may vary depending on the platform's updates. However, I can help you with a similar problem or create a custom problem statement based on your requirements.
+Unfortunately, as of my knowledge cutoff in October 2023, LeetCode does not have a problem numbered #2908. LeetCode problem numbers are dynamic and can vary based on the platform's updates. However, I can help you with any specific problem or topic you'd like to explore. If you have a description or title of the problem, feel free to share it, and I can assist you in crafting a solution.
 
-If you have a specific problem in mind, please provide the details, and I will write the problem statement, solution, test cases, and analysis for you. Alternatively, I can create a new problem for you to work on. Let me know how you'd like to proceed!
+Alternatively, I can create a custom problem and solution for you based on a topic of your choice. Let me know how you'd like to proceed!
