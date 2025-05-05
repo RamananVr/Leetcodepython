@@ -14,7 +14,7 @@
 # Python Solution
 def two_sum(nums, target):
     """
-    Finds two numbers in the list that add up to the target and returns their indices.
+    Finds two indices in the list `nums` such that their values add up to `target`.
 
     :param nums: List[int] - List of integers
     :param target: int - Target sum
@@ -45,18 +45,10 @@ if __name__ == "__main__":
     target3 = 6
     print(two_sum(nums3, target3))  # Output: [0, 1]
 
-    # Test Case 4
-    nums4 = [1, 5, 7, 8]
-    target4 = 13
-    print(two_sum(nums4, target4))  # Output: [1, 3]
-
 # Time and Space Complexity Analysis
 # Time Complexity: O(n)
-# - We iterate through the list once, and each lookup in the dictionary is O(1).
-# - Therefore, the overall time complexity is O(n), where n is the length of the input list.
-
+# - We iterate through the list once, performing O(1) operations for each element.
 # Space Complexity: O(n)
-# - We use a dictionary to store the indices of the numbers we have seen so far.
-# - In the worst case, we store all n elements in the dictionary, so the space complexity is O(n).
+# - We store up to n elements in the dictionary `num_to_index`.
 
 # Topic: Hash Table
