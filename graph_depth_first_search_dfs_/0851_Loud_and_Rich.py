@@ -82,7 +82,7 @@ if __name__ == "__main__":
     # Test Case 3
     richer = [[0, 1], [1, 2]]
     quiet = [1, 0, 2]
-    print(loudAndRich(richer, quiet))  # Output: [0, 0, 0]
+    print(loudAndRich(richer, quiet))  # Output: [0, 1, 1]
 
 """
 Time Complexity:

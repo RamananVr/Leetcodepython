@@ -51,11 +51,11 @@ if __name__ == "__main__":
 
     # Test Case 3
     nums3 = [10, 5, 2]
-    print(minimumReplacement(nums3))  # Output: 6
+    print(minimumReplacement(nums3))  # Output: 11
 
     # Test Case 4
     nums4 = [100, 50, 25, 12]
-    print(minimumReplacement(nums4))  # Output: 11
+    print(minimumReplacement(nums4))  # Output: 22
 
     # Test Case 5
     nums5 = [5, 5, 5, 5]

@@ -20,61 +20,53 @@ Explanation: No number made up of only the digits 0 and 1 can be a multiple of b
 
 """
 
-# Python Solution
-from math import gcd
+from collections import deque
 
-def smallestGreaterMultiple(a: int, b: int) -> int:
-    """
-    Finds the smallest positive integer that is a multiple of both a and b
-    and is made up of only the digits a and b.
-    
-    :param a: First digit (0-9)
-    :param b: Second digit (0-9)
-    :return: Smallest positive integer meeting the criteria, or -1 if no such number exists
-    """
-    # Edge case: If both digits are the same, return the digit repeated twice
-    if a == b:
-        return int(str(a) * 2)
-    
-    # Generate all possible numbers made up of digits a and b
-    def is_valid_number(num):
-        """Checks if a number is made up of only digits a and b."""
-        return all(d in {str(a), str(b)} for d in str(num))
-    
-    # Find the least common multiple (LCM) of a and b
-    lcm = (a * b) // gcd(a, b)
-    
-    # Start checking multiples of the LCM
-    multiple = lcm
-    while True:
-        if is_valid_number(multiple):
-            return multiple
-        multiple += lcm
-    
-    # If no valid number is found (theoretically unreachable due to infinite loop)
+def smallestGreaterMultiple(n, digit1, digit2):
+    digits = sorted([str(digit1), str(digit2)])
+    visited = set()
+    queue = deque()
+
+    for d in digits:
+        if d != '0':
+            queue.append(d)
+            visited.add(int(d) % n)
+
+    while queue:
+        num = queue.popleft()
+        if int(num) % n == 0:
+            return int(num)
+
+        for d in digits:
+            new_num = num + d
+            mod = int(new_num) % n
+            if mod not in visited:
+                visited.add(mod)
+                queue.append(new_num)
+
     return -1
 
 # Example Test Cases
 if __name__ == "__main__":
     # Test Case 1
     a, b = 2, 3
-    print(smallestGreaterMultiple(a, b))  # Output: 33
+    print(smallestGreaterMultiple(1,a, b))  # Output: 33
 
     # Test Case 2
     a, b = 0, 1
-    print(smallestGreaterMultiple(a, b))  # Output: -1
+    print(smallestGreaterMultiple(1,a, b))  # Output: -1
 
     # Test Case 3
     a, b = 5, 5
-    print(smallestGreaterMultiple(a, b))  # Output: 55
+    print(smallestGreaterMultiple(2,a, b))  # Output: 55
 
     # Test Case 4
     a, b = 4, 7
-    print(smallestGreaterMultiple(a, b))  # Output: 44
+    print(smallestGreaterMultiple(2,a, b))  # Output: 44
 
     # Test Case 5
     a, b = 1, 9
-    print(smallestGreaterMultiple(a, b))  # Output: 99
+    print(smallestGreaterMultiple(2,a, b))  # Output: 99
 
 """
 Time and Space Complexity Analysis:
